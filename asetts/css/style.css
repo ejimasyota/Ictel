@@ -1,0 +1,86 @@
+/* ==========================================================
+ * プロパティ
+ * ========================================================== */
+/* 1. 全体設定 */
+* {
+  box-sizing: border-box;
+}
+/* 2. ボディ */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: #f7f7f7;
+  color: #333;
+}
+
+/* 3. ヘッダー */
+header {
+  background: #ffffff;
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* 4. 見出し */
+h1 {
+  margin: 0 0 12px;
+  font-size: 1.4rem;
+}
+
+/* 5. ラベル */
+label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+
+/* 6. フォーム */
+select,
+input[type="text"] {
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* 7. ボタン */
+button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  background: #ff8c00;
+  color: #fff;
+  cursor: pointer;
+}
+button:hover {
+  opacity: 0.85;
+}
+
+/* 8. メイン */
+main {
+  padding: 16px;
+}
+
+/* ==========================================================
+ * 検索結果
+ * ========================================================== */
+/* 1. 件数 */
+.ResultCount {
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+/* 2. 取得結果リスト */
+.ResultList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+/* ==========================================================
+ * マップ関係
+ * ========================================================== */
+/* 1. 店舗マップ */
+.StoreMap {
+  width: 100%;
+  height: 300px;
+  background: #ddd;
+}

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KAGOSHIMA グルメマップ</title>
+  <style rel="stylesheet" href="asetts/css/style.css"></style>
+
+</head>
+<body>
+  <header>
+    <h1>KAGOSHIMA グルメマップ</h1>
+    <div>
+      <label>
+        店舗種別
+        <select id="SelectStoreType">
+          <option value="All">すべて</option>
+          <option value="Izakaya">居酒屋</option>
+          <option value="Restaurant">レストラン</option>
+          <option value="Cafe">カフェ</option>
+          <option value="Bar">バー</option>
+          <option value="family">ファミレス</option>
+          <option value="Ramen">ラーメン</option>
+        </select>
+      </label>
+
+      <label>
+        <input type="checkbox" id="OpenCheck" />
+        本日営業中
+      </label>
+
+      <label>
+        店名
+        <input type="text" id="StoreName" placeholder="店舗名" />
+      </label>
+      <button id="SearchButton">検索</button>
+
+      <div>
+        <button id="ShowBookMark">ブックマーク</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 取得件数 -->
+    <div id="ResultCount" class="ResultCount"></div>
+    <!-- 取得結果 -->
+    <div id="ResultList" class="ResultList"></div>
+  </main>
+
+  <!-- マップ -->
+  <div>
+    <div>
+      <header>
+        <button id="CloseButton">閉じる</button>
+      </header>
+      <div id="StoreMap" class="StoreMap"></div>
+    </div>
+  </div>
+</body>
+</html>
