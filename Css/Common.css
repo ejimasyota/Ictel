@@ -1,0 +1,690 @@
+/* ===== Reset & Base ===== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primary: #2563eb;
+    --color-primary-dark: #1d4ed8;
+    --color-primary-light: #dbeafe;
+    --color-accent: #f59e0b;
+    --color-bg: #f8fafc;
+    --color-surface: #ffffff;
+    --color-text: #1e293b;
+    --color-text-secondary: #64748b;
+    --color-border: #e2e8f0;
+    --color-error: #ef4444;
+    --color-success: #22c55e;
+    --color-overlay: rgba(0, 0, 0, 0.5);
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    --header-height: 56px;
+    --max-width: 1200px;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    border: none;
+    background: none;
+}
+
+/* ===== Header ===== */
+.Header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+    padding: 0 16px;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    box-shadow: var(--shadow-md);
+}
+
+.Header__Title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.Header__Actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.Header__IconButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: background-color 0.2s;
+}
+
+.Header__IconButton:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.Header__IconButton svg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+}
+
+/* ===== Language Toggle ===== */
+.LangToggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: #ffffff;
+    user-select: none;
+}
+
+.LangToggle__Switch {
+    position: relative;
+    width: 40px;
+    height: 22px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 11px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.LangToggle__Switch::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    transition: transform 0.2s;
+}
+
+.LangToggle__Switch.Active {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.LangToggle__Switch.Active::after {
+    transform: translateX(18px);
+}
+
+/* ===== Main Content ===== */
+.MainContent {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 20px 16px 40px;
+}
+
+/* ===== Section Title ===== */
+.SectionTitle {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    padding-left: 4px;
+    color: var(--color-text);
+}
+
+/* ===== Shop Card ===== */
+.ShopCard {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-surface);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.ShopCard:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.ShopCard__Image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background-color: var(--color-border);
+}
+
+.ShopCard__Body {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ShopCard__Name {
+    font-size: 1rem;
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ShopCard__Genre {
+    font-size: 0.82rem;
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+.ShopCard__Hours {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+}
+
+.ShopCard__Status {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    width: fit-content;
+}
+
+.ShopCard__Status--Open {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.ShopCard__Status--Closed {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.ShopCard__Rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: var(--color-accent);
+}
+
+/* ===== Card Grid ===== */
+.CardGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+/* ===== Slider ===== */
+.Slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.Slider__Track {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 4px 0 12px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.Slider__Track::-webkit-scrollbar {
+    display: none;
+}
+
+.Slider__Track .ShopCard {
+    min-width: 240px;
+    max-width: 240px;
+    flex-shrink: 0;
+}
+
+.Slider__Arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: background-color 0.2s;
+}
+
+.Slider__Arrow:hover {
+    background-color: var(--color-primary-light);
+}
+
+.Slider__Arrow--Left {
+    left: 4px;
+}
+
+.Slider__Arrow--Right {
+    right: 4px;
+}
+
+.Slider__Arrow svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--color-text);
+}
+
+/* ===== Pagination ===== */
+.Pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 28px;
+}
+
+.Pagination__Button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 12px;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    font-weight: 500;
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.Pagination__Button:hover:not(:disabled) {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary);
+}
+
+.Pagination__Button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.Pagination__Button--Active {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border-color: var(--color-primary);
+}
+
+/* ===== Dialog Overlay ===== */
+.DialogOverlay {
+    position: fixed;
+    inset: 0;
+    background-color: var(--color-overlay);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s, visibility 0.25s;
+}
+
+.DialogOverlay.Visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.Dialog {
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    width: 90%;
+    max-width: 480px;
+    max-height: 85vh;
+    overflow-y: auto;
+    transform: translateY(20px);
+    transition: transform 0.25s;
+}
+
+.DialogOverlay.Visible .Dialog {
+    transform: translateY(0);
+}
+
+.Dialog__Header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.Dialog__Title {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.Dialog__CloseButton {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.Dialog__CloseButton:hover {
+    background-color: var(--color-border);
+}
+
+.Dialog__CloseButton svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--color-text-secondary);
+}
+
+.Dialog__Body {
+    padding: 20px;
+}
+
+.Dialog__Footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 12px 20px 16px;
+}
+
+/* ===== Buttons ===== */
+.Button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.Button--Primary {
+    background-color: var(--color-primary);
+    color: #ffffff;
+}
+
+.Button--Primary:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.Button--Secondary {
+    background-color: var(--color-border);
+    color: var(--color-text);
+}
+
+.Button--Secondary:hover {
+    background-color: #cbd5e1;
+}
+
+.Button--Danger {
+    background-color: var(--color-error);
+    color: #ffffff;
+}
+
+.Button--Danger:hover {
+    background-color: #dc2626;
+}
+
+/* ===== Form ===== */
+.FormGroup {
+    margin-bottom: 16px;
+}
+
+.FormGroup__Label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--color-text);
+}
+
+.FormGroup__Input,
+.FormGroup__Select {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    transition: border-color 0.2s;
+    font-family: inherit;
+}
+
+.FormGroup__Input:focus,
+.FormGroup__Select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+.FormGroup__Radio {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.FormGroup__RadioLabel {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+/* ===== Spinner ===== */
+.Spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 40px;
+}
+
+.Spinner__Circle {
+    width: 44px;
+    height: 44px;
+    border: 4px solid var(--color-border);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: SpinnerRotate 0.8s linear infinite;
+}
+
+@keyframes SpinnerRotate {
+    to { transform: rotate(360deg); }
+}
+
+.Spinner__Text {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+/* ===== Bookmark Delete Icon ===== */
+.BookmarkDeleteIcon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-error);
+    transition: background-color 0.2s;
+    flex-shrink: 0;
+}
+
+.BookmarkDeleteIcon:hover {
+    background-color: #fee2e2;
+}
+
+.BookmarkDeleteIcon svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+/* ===== Bookmark Card (with delete) ===== */
+.BookmarkCard {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    transition: background-color 0.2s;
+}
+
+.BookmarkCard:hover {
+    background-color: var(--color-bg);
+}
+
+.BookmarkCard__Info {
+    flex: 1;
+    min-width: 0;
+    cursor: pointer;
+}
+
+.BookmarkCard__Image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+    background-color: var(--color-border);
+}
+
+.BookmarkCard__Name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.BookmarkCard__Genre {
+    font-size: 0.78rem;
+    color: var(--color-text-secondary);
+}
+
+/* ===== No Data ===== */
+.NoData {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+}
+
+/* ===== Toast ===== */
+.Toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background-color: var(--color-text);
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    z-index: 2000;
+    opacity: 0;
+    transition: transform 0.3s, opacity 0.3s;
+    white-space: nowrap;
+}
+
+.Toast.Visible {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .Header__Title {
+        font-size: 1rem;
+    }
+
+    .CardGrid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 14px;
+    }
+
+    .ShopCard__Image {
+        height: 150px;
+    }
+
+    .Slider__Track .ShopCard {
+        min-width: 200px;
+        max-width: 200px;
+    }
+
+    .Slider__Arrow {
+        display: none;
+    }
+
+    .Dialog {
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    .CardGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .Pagination__Button {
+        min-width: 32px;
+        height: 32px;
+        padding: 0 8px;
+        font-size: 0.82rem;
+    }
+}

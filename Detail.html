@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="鹿児島県内の飲食店・居酒屋を検索できるグルメサーチアプリ">
-    <title>鹿児島グルメサーチ</title>
+    <title>店舗詳細 - 鹿児島グルメサーチ</title>
     <link rel="stylesheet" href="Css/Common.css">
-    <link rel="stylesheet" href="Css/Main.css">
+    <link rel="stylesheet" href="Css/Detail.css">
 </head>
 <body>
     <!-- ヘッダー -->
@@ -14,21 +13,7 @@
 
     <!-- メインコンテンツ -->
     <main class="MainContent">
-        <!-- おすすめ店舗セクション -->
-        <section id="RecommendSection" style="display:none;">
-            <h2 class="SectionTitle" id="RecommendTitle"></h2>
-            <div id="RecommendSlider"></div>
-        </section>
-
-        <!-- 検索結果セクション -->
-        <section id="ResultSection" style="display:none;">
-            <h2 class="SectionTitle" id="ResultTitle"></h2>
-            <div class="CardGrid" id="ResultGrid"></div>
-            <div id="PaginationContainer"></div>
-        </section>
-
-        <!-- 初期表示メッセージ -->
-        <div id="InitialMessage" class="NoData"></div>
+        <div id="DetailContent"></div>
     </main>
 
     <!-- Scripts: Config -->
@@ -63,7 +48,10 @@
     <script src="Js/Dialog/SearchDialog.js"></script>
     <script src="Js/Dialog/BookmarkDialog.js"></script>
 
-    <!-- Scripts: Main -->
-    <script src="Js/Main.js"></script>
+    <!-- Google Maps -->
+    <script id="GoogleMapsScript"></script>
+
+    <!-- Scripts: Detail -->
+    <script src="Js/Detail.js"></script>
 </body>
 </html>

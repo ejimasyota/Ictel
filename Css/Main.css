@@ -1,0 +1,18 @@
+/* ===== メイン画面固有スタイル ===== */
+
+#RecommendSection {
+    margin-bottom: 32px;
+}
+
+#ResultSection {
+    margin-bottom: 20px;
+}
+
+#InitialMessage {
+    margin-top: 60px;
+}
+
+/* おすすめセクションとリザルトセクションの間のスペース */
+#RecommendSection + #ResultSection {
+    margin-top: 12px;
+}
