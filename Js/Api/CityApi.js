@@ -32,12 +32,13 @@ const CityApi = (() => {
      */
     async function FetchCities() {
         try {
-            const Url = "/api/mlit?" + new URLSearchParams({
-                area: KAGOSHIMA_PREF_CODE,
-                apikey: MLIT_API_KEY
+            const Url = MLIT_BASE_URL + "?" + new URLSearchParams({
+                area: KAGOSHIMA_PREF_CODE
             }).toString();
 
-            const Response = await fetch(Url);
+            const Response = await fetch(Url, {
+                headers: { "Ocp-Apim-Subscription-Key": MLIT_API_KEY }
+            });
 
             if (!Response.ok) {
                 throw new Error("API response: " + Response.status);

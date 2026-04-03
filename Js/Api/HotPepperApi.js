@@ -52,8 +52,9 @@ const HotPepperApi = (() => {
             delete Params.large_area;
         }
 
+        Params.format = "json";
         const Query = BuildQuery(Params);
-        const Response = await fetch("/api/hotpepper/gourmet?" + Query);
+        const Response = await fetch(HOTPEPPER_BASE_URL + "?" + Query);
         const Data = await Response.json();
 
         if (Data.results && Data.results.shop) {
@@ -121,8 +122,9 @@ const HotPepperApi = (() => {
         const Params = {
             key: HOTPEPPER_API_KEY
         };
+        Params.format = "json";
         const Query = BuildQuery(Params);
-        const Response = await fetch("/api/hotpepper/genre?" + Query);
+        const Response = await fetch(HOTPEPPER_GENRE_URL + "?" + Query);
         const Data = await Response.json();
 
         if (Data.results && Data.results.genre) {
